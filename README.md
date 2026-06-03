@@ -19,7 +19,7 @@ Agents that aren't installed are skipped silently.
 ### As a Claude Code plugin
 
 ```bash
-/plugin install <github-user>/update-clankers
+npx skills add salmanrrana/update-clankers
 ```
 
 (Replace `<github-user>` with this repo's owner.)
