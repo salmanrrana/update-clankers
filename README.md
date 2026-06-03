@@ -10,6 +10,7 @@ Detects which of these are on `PATH` and runs each update command in parallel:
 | `cursor-agent` | `cursor-agent update`                 |
 | `opencode`     | `opencode upgrade`                    |
 | `codex`        | `npm install -g @openai/codex@latest` |
+| `pi`           | `pi update pi`                        |
 
 Agents that aren't installed are skipped silently.
 
