@@ -18,40 +18,12 @@ Agents that aren't installed are skipped silently.
 
 ### Install for pi, Codex, Cursor, and Claude
 
-```bash
-repo=/path/to/update-clankers
-mkdir -p ~/.pi/agent/skills ~/.codex/skills ~/.cursor/skills-cursor ~/.claude/skills ~/.agents/skills
-cp -R "$repo/skills/update-clankers" ~/.pi/agent/skills/
-cp -R "$repo/skills/update-clankers" ~/.codex/skills/
-cp -R "$repo/skills/update-clankers" ~/.cursor/skills-cursor/
-cp -R "$repo/skills/update-clankers" ~/.claude/skills/
-cp -R "$repo/skills/update-clankers" ~/.agents/skills/
-```
-
-Then ask any supported harness: "update my clankers".
-
-You can also run the updater directly:
-
-```bash
-~/.agents/skills/update-clankers/scripts/update-clankers.sh
-```
-
-### As a Claude Code plugin
 
 ```bash
 npx skills add salmanrrana/update-clankers
 ```
 
 Then invoke by asking your LLM to "update my clankers" or similar.
-
-### As a standalone skill (no plugin system)
-
-Clone the skill straight into your user-level skills directory:
-
-```bash
-git clone https://github.com/salmanrrana/update-clankers.git /tmp/update-clankers
-cp -r /tmp/update-clankers/skills/update-clankers ~/.claude/skills/
-```
 
 ## Layout
 
