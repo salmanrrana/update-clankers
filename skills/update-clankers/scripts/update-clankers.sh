@@ -1,14 +1,15 @@
 #!/usr/bin/env bash
 set -u
 
-agents=(claude cursor-agent opencode codex pi)
-
-declare -A commands
-commands[claude]="claude update"
-commands[cursor-agent]="cursor-agent update"
-commands[opencode]="opencode upgrade"
-commands[codex]="npm install -g @openai/codex@latest"
-commands[pi]="pi update --self"
+agents=(claude copilot cursor-agent opencode codex pi)
+commands=(
+  "claude update"
+  "copilot update"
+  "cursor-agent update"
+  "opencode upgrade"
+  "npm install -g @openai/codex@latest"
+  "pi update --self"
+)
 
 workdir="$(mktemp -d)"
 trap 'rm -rf "$workdir"' EXIT
@@ -16,14 +17,15 @@ trap 'rm -rf "$workdir"' EXIT
 pids=()
 names=()
 
-for agent in "${agents[@]}"; do
+for i in "${!agents[@]}"; do
+  agent="${agents[$i]}"
   path="$(command -v "$agent" 2>/dev/null || true)"
   if [[ -z "$path" ]]; then
     printf '%-12s skipped (not on PATH)\n' "$agent"
     continue
   fi
 
-  command_to_run="${commands[$agent]}"
+  command_to_run="${commands[$i]}"
 
   if [[ "$agent" == "codex" && ( "$path" == *"/Cellar/"* || "$path" == *"/opt/homebrew/"* ) ]]; then
     command_to_run="brew upgrade --cask codex"
@@ -32,7 +34,7 @@ for agent in "${agents[@]}"; do
   log_file="$workdir/$agent.log"
   (
     printf '$ %s\n' "$command_to_run"
-    bash -lc "$command_to_run"
+    bash -c "$command_to_run"
   ) >"$log_file" 2>&1 &
 
   pids+=("$!")

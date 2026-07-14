@@ -7,6 +7,7 @@ Detects which of these are on `PATH` and runs each update command in parallel:
 | Agent          | Update command                        |
 | -------------- | ------------------------------------- |
 | `claude`       | `claude update`                       |
+| `copilot`      | `copilot update`                      |
 | `cursor-agent` | `cursor-agent update`                 |
 | `opencode`     | `opencode upgrade`                    |
 | `codex`        | `npm install -g @openai/codex@latest` |
