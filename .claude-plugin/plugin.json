@@ -1,7 +1,7 @@
 {
   "name": "update-clankers",
-  "description": "One-shot update for installed AI coding CLIs — claude, copilot, cursor-agent, opencode, codex, pi. Runs each agent's update command in parallel.",
-  "version": "0.2.0",
+  "description": "Installer-aware updates for claude, copilot, cursor-agent, opencode, codex, and pi on Linux, macOS, and Windows, with version verification.",
+  "version": "0.3.0",
   "keywords": [
     "update",
     "cli",
